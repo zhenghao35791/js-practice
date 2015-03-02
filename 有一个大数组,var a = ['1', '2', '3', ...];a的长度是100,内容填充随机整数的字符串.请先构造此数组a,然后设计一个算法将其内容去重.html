@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>有一个大数组,var a = ['1', '2', '3', ...];a的长度是100,内容填充随机整数的字符串.请先构造此数组a,然后设计一个算法将其内容去重</title>
+<script type="text/javascript">
+/*** 用100个随机整数对应的字符串填充数组。**/
+	function createArray(array, start, end) {
+		start = undefined?1:start;
+		end = undefined?100:end;
+		if(end <= start) {
+			end = start + 100;	
+		}
+		len = end - start;
+		for(var i=0; i<len; i++) {
+			array.push(Math.floor(Math.random(0,1)*len)+start);	
+		}	
+		return array;
+		console.log('aaaa'+array);
+	}
+	/*** 数组去重**/
+	function normalize(arr) {
+        if (arr && Array.isArray(arr)) {
+            var i, len, map = {};
+            for (i = arr.length; i >= 0; --i) {
+                if (arr[i] in map) {
+                    arr.splice(i, 1);//如果map里面已经有了arr【i】，就用splice方法删掉重复的
+                } else {
+                    map[arr[i]] = true;//如果map里面没有出现过该元素，map[arr[i]]，就等于是将该元素插入进去。
+                }
+            }
+        }
+        return arr;
+    }
+	
+	
+	var input = [];
+	createArray(input,1,100);
+	input.sort(function (a, b) {
+        return a - b;
+    });
+	console.log(input);
+	normalize(input);
+	console.log(input);
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

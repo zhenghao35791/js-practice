@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<script type="text/javascript">
+        function parseQueryString(url){
+	/*如果地址为空或者url没有参数则直接返回空null*/
+            if(url == null || url.indexOf('?') == -1){
+                return null;
+            }
+            var params = {};
+            /*
+            * 用？将url拆成两部分，第一部分为：http://witmax.cn/index.php
+            * 第二部分为：key0=0&key1=1&key2=2
+            * */
+            var arr = url.split('?');
+            console.log("?"+arr.toString());
+            if(arr.length <= 1){
+                return params;
+            }
+            /*
+            * 将之前的第二部分用&拆成多个部分，键值对
+            * 然后用=号将键值对拆开，key = value
+            * */
+            arr = arr[1].split('&');
+            console.log("$"+arr.join('.'));
+            for(var i = 0, len = arr.length; i < len; i++){
+                var a = arr[i].split('=');
+				console.log("a0："+a[0]);
+								console.log("a1："+a[1]);
+
+                params[a[0]] = a[1];
+								console.log("params[a[0]]： "+params[a[0]]);
+
+            }
+            return params;
+         }
+       console.log(parseQueryString('http://witmax.cn/index.php?   key0=a&key1=b&key2=c'));
+</script>
+</head>
+
+<body>
+asdasdasd
+</body>
+</html>

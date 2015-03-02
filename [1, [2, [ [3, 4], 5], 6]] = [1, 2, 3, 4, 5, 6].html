@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+<script type="text/javascript">
+	var data = [1, [2, [ [3, 4], 5], 6],7,[8,9,10]];
+	function flat(data,result) {
+	    for(var i=0;i<data.length;i++){
+			if(typeof data[i]==='number'){//如果是数字了，push到result里面
+				result.push(data[i]);
+			}else{
+				flat(data[i],result);//如果还是数组，继续调用flat方法，知道拆成了数字为止。
+			}
+		}
+		console.log(result);		
+	}
+	var result = [];
+	flat(data,result);
+</script>
+</head>
+
+<body>
+</body>
+</html>
