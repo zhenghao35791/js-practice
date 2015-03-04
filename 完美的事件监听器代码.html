@@ -21,6 +21,7 @@ else if (window.attachEvent) {
       listener.call(el, event);
     };
 
+
     el.attachEvent('on' + type, wrapper);
     return wrapper; 
     // 返回wrapper。调用者可以保存，以后remove
